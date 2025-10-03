@@ -1,0 +1,99 @@
+/* src/pages/About.css */
+
+.about {
+  position: relative;
+  min-height: 1vh;
+  
+  background-attachment: fixed; /* ✅ Biar background tetap diam */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #344F1F;
+  text-align: center;
+}
+
+/* ✨ Styling teks tengah */
+.about h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.about .about-text p {
+  max-width: 70000px;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: rgba(1, 59, 21, 0.9);
+}
+
+.Profile-pic {
+  width: 500px;       /* 👉 atur lebar gambar */
+  height: 500px;      /* 👉 atur tinggi gambar (opsional, bisa auto) */
+  object-fit: cover;  /* supaya gambar tetap proporsional */
+  border-radius: 50%; /* kalau mau bentuknya lingkaran */
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2); /* efek bayangan biar lebih rapi */
+}
+
+
+/* 🪶 Navbar style */
+.navbar {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6); /* transparan biar nyatu sama foto */
+  padding: 15px 50px;
+  border-radius: 0 0 20px 20px; /* ✅ biar gak kotak banget */
+  position: absolute; /* supaya nempel di atas background */
+  top: 0;
+  left: 0;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #ddd;
+}
+
+.schedule-title {
+  margin-top: 40px;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 1.1rem;
+}
+
+.schedule-table th,
+.schedule-table td {
+  padding: 12px 20px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.schedule-table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.schedule-table tr:hover {
+  background-color: #f9f9f9;
+  transition: background-color 0.2s ease;
+}
