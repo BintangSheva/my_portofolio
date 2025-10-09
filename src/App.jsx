@@ -12,6 +12,8 @@ import Hello from './components/Hello'
 
 // import komponen About
 import About from './pages/About'
+//import komponen Contact
+import Contact from './pages/Contact'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -22,6 +24,7 @@ function App() {
     <Home />
     <Hello />
     <About/>
+    <Contact/>
     </>
   );
     <>
