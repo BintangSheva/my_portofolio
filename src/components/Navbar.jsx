@@ -1,14 +1,32 @@
+import { useState } from "react";
+import "./Navbar.css";
+
 function Navbar() {
+  const [active, setActive] = useState("Home");
+  const menus = ["Home", "Projects", "About", "Contact"];
+
   return (
-    <nav className="navbar flex justify-between items-center py-4 px-8 bg-gray-900 text-white">
-      <h2 className="logo text-2xl font-bold">MyPortofolio</h2>
-      <ul className="nav-links flex gap-6">
-        <li><a href="#home" className="hover:text-blue-400 transition-colors">Home</a></li>
-        <li><a href="#about" className="hover:text-blue-400 transition-colors">About</a></li>
-        <li><a href="#projects" className="hover:text-blue-400 transition-colors">Projects</a></li>
-        <li><a href="#contact" className="hover:text-blue-400 transition-colors">Contact</a></li>
-      </ul>
-    </nav>
+    <div className="flex justify-center items-center w-full py-6 bg-gray-100">
+      <nav className="bg-white shadow-xl rounded-full px-8 py-3 flex space-x-8 items-center backdrop-blur-md border border-gray-200">
+        {menus.map((menu) => (
+          <a
+            key={menu}
+            href={`#${menu.toLowerCase()}`}
+            onClick={() => setActive(menu)}
+            className={`nav-item relative px-5 py-2 text-sm font-medium transition-all duration-300 rounded-full ${
+              active === menu
+                ? "bg-gradient-to-r from-green-400 to-green-500 text-white shadow-md"
+                : "text-gray-600 hover:text-black hover:bg-gray-100"
+            }`}
+          >
+            {menu}
+            {active === menu && (
+              <span className="active-indicator"></span>
+            )}
+          </a>
+        ))}
+      </nav>
+    </div>
   );
 }
 

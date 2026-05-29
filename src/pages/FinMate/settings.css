@@ -1,0 +1,121 @@
+.settings-page {
+  display: flex;
+  height: 100vh;
+  background-color: #fdfbf7;
+}
+
+.settings-container {
+  flex: 1;
+  padding: 40px;
+  overflow-y: auto;
+  max-width: 800px; /* Biar gak lebar banget */
+  margin: 0 auto;
+}
+
+.settings-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1f2937;
+  margin-bottom: 30px;
+}
+
+/* KARTU PROFIL */
+.settings-card {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+  border: 1px solid #f3f4f6;
+}
+
+.card-header {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+
+.card-header h3 {
+  margin: 0;
+  color: #374151;
+  font-size: 1.2rem;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #4b5563;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+.btn-save {
+  background-color: #2563eb;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-save:hover {
+  background-color: #1d4ed8;
+}
+
+/* DANGER ZONE (MERAH) */
+.danger-zone {
+  border: 1px solid #fca5a5;
+  background: #fef2f2;
+}
+
+.danger-zone h3 {
+  color: #b91c1c;
+}
+
+.danger-text {
+  color: #7f1d1d;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+.btn-danger {
+  background-color: #ef4444;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+.btn-danger:hover {
+  background-color: #dc2626;
+}
+
+.btn-logout {
+  background-color: #4b5563;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-logout:hover {
+  background-color: #374151;
+}

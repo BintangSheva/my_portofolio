@@ -1,68 +1,91 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-// import komponen navbar
-import Navbar from './components/Navbar'
-// import komponen home
-import Home from './pages/Home'
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
-// import komponen Hello
-import Hello from './components/Hello'
+// --- IMPORT KOMPONEN PORTOFOLIO ---
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import Hello from "./components/Hello";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Projects from "./pages/Projects";
+import Landing from "./pages/FinMate/Landing";
 
-// import komponen About
-import About from './pages/About'
-//import komponen Contact
-import Contact from './pages/Contact'
+// --- IMPORT HALAMAN FINMATE ---
+import Login from "./pages/FinMate/Login";
+import Register from "./pages/FinMate/Register";
+import FinMateDashboard from "./pages/FinMate/FinMateDashboard";
+import TransactionPage from "./pages/FinMate/TransactionPage";
+import Planner from "./pages/FinMate/Planner";
 
-//import komponen projects
-import Projects from './pages/Projects'
+// 👇 1. IMPORT SETTINGS DI SINI (PENTING!)
+import Settings from "./pages/FinMate/settings"; 
 
 function App() {
-  const [count, setCount] = useState(0)
+  // 👇 2. DEFINISIKAN VARIABLE INI (INI YANG BIKIN ERROR TADI)
+  const isAuthenticated = !!localStorage.getItem("token");
 
   return (
-    <>
-    <Navbar/>
-    <Home />
-    <Hello />
-    <About/>
-    <Projects/>
-    <Contact/>
-    </>
+    // Basename memastikan semua rute dimulai dengan /my_portofolio
+    <Router basename="/my_portofolio">
+      <Routes>
+        
+        {/* ZONA 1: HALAMAN PORTOFOLIO */}
+        <Route
+          path="/"
+          element={
+            <>
+              <Navbar />
+              <Home />
+              <Hello />
+              <About />
+              <Projects />
+              <Contact />
+            </>
+          }
+        />
+
+        {/* ZONA 2: HALAMAN FINMATE */}
+        
+        {/* Akses: localhost:5173/my_portofolio/login */}
+        <Route path="/login" element={<Login />} />
+        
+        {/* Akses: localhost:5173/my_portofolio/register */}
+        <Route path="/register" element={<Register />} />
+
+        {/* Akses: localhost:5173/my_portofolio/finmate */}
+        <Route path="/finmate" element={<Landing />} />
+
+        {/* === PROTECTED ROUTES (HARUS LOGIN) === */}
+        {/* Kalau user belum login (isAuthenticated false), lempar ke /login */}
+
+        <Route 
+          path="/dashboard" 
+          element={isAuthenticated ? <FinMateDashboard /> : <Navigate to="/login" />} 
+        />
+
+        <Route 
+          path="/transactions" 
+          element={isAuthenticated ? <TransactionPage /> : <Navigate to="/login" />} 
+        />
+
+        <Route 
+          path="/planner" 
+          element={isAuthenticated ? <Planner /> : <Navigate to="/login" />} 
+        />
+
+        {/* 👇 3. ROUTE SETTINGS (Udah dibenerin: Pake Huruf Besar <Settings />) */}
+        <Route 
+          path="/settings" 
+          element={isAuthenticated ? <Settings /> : <Navigate to="/login" />} 
+        />
+
+        {/* REDIRECT: Kalau ada yang akses path aneh-aneh, lempar ke home portofolio */}
+        {/* Taruh ini PALING BAWAH */}
+        <Route path="*" element={<Navigate to="/" />} />
+
+      </Routes>
+    </Router>
   );
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-  
-      <main>
-        <section id="home"> Ini Home </section>
-        <section id="about"> Ini About</section>
-        <section id="projects"> Ini Projects</section>
-        <section id="contact"> Ini Contact</section>
-      </main>
-      <h1>Halo der</h1>
-      {/*  👇 Panggil komponen Hello */}
-    
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-           {count === 0 ? "klik aku dong 👆 " : 'udh diklik'}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        ini project pertama gua let,s focking gooo 
-      </p>
-    </>
-  
 }
 
-export default App
+export default App;

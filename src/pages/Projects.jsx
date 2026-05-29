@@ -5,7 +5,7 @@ const projects = [
   {
     title: "Coming Soon 🚀",
     description: "Your awesome projects will appear here soon!",
-    image: "https://via.placeholder.com/400x250?text=Project+Coming+Soon",
+    image: "https://placehold.co/400x250?text=Project+Coming+Soon",
   },
   {
     title: "FinMate",
@@ -71,6 +71,7 @@ function Projects() {
           ›
         </button>
       </div>
+      <section id="section">....</section>
     </section>
   );
 }

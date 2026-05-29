@@ -18,6 +18,7 @@ export default function Home() {
         </p>
         <a href="#projects" className="btn">View My Projects</a>
       </div>
+      
     </section>
   );
 }

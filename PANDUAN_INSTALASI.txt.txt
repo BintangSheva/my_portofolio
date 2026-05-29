@@ -1,0 +1,51 @@
+NAMA: Bintang Sheva
+NIM: 23040700055
+PRODI: Teknologi Informasi
+PROJECT: FinMate - K-Means Clustering Finance App
+
+==================================================
+PANDUAN INSTALASI & MENJALANKAN APLIKASI (FINMATE)
+==================================================
+Catatan: Folder "node_modules" telah dihapus untuk meringankan ukuran file.
+Harap ikuti langkah instalasi di bawah ini untuk mengunduh ulang library (dependencies).
+
+PRASYARAT SYSTEM:
+1. Node.js (Sudah terinstall)
+2. MongoDB (Pastikan service MongoDB berjalan)
+
+--------------------------------------------------
+A. CARA MENJALANKAN BACKEND (SERVER)
+--------------------------------------------------
+Backend menangani logika K-Means dan Database.
+
+1. Buka Terminal / CMD.
+2. Masuk ke folder "server".
+   (Contoh: cd belajar/server)
+3. Ketik perintah berikut untuk install library:
+   >> npm install
+4. Setelah selesai, jalankan server dengan perintah:
+   >> npm start
+   (Atau jika gagal: "node server.js")
+5. Pastikan muncul pesan "Server berjalan..." atau "Database Connected".
+
+--------------------------------------------------
+B. CARA MENJALANKAN FRONTEND (CLIENT)
+--------------------------------------------------
+Frontend adalah tampilan web (React + Vite).
+
+1. Buka Terminal BARU (Jangan matikan terminal Backend).
+2. Pastikan posisi terminal ada di folder root utama ("belajar").
+3. Ketik perintah berikut untuk install library:
+   >> npm install
+4. Setelah selesai, jalankan web dengan perintah:
+   >> npm run dev
+5. Klik link localhost yang muncul (biasanya http://localhost:5173 atau 3000).
+
+--------------------------------------------------
+CATATAN TAMBAHAN
+--------------------------------------------------
+- File .env sudah disertakan di dalam folder server untuk konfigurasi database.
+- Pastikan koneksi internet aktif saat pertama kali melakukan "npm install".
+- Gunakan fitur "Analyze" di Dashboard untuk melihat demo K-Means.
+
+Terima kasih.

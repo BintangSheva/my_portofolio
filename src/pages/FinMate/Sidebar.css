@@ -1,0 +1,81 @@
+/* Sidebar.css - Diubah Total Jadi Bottom Navigation */
+
+.bottom-nav-container {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px; /* Sesuaiin sama lebar .dashboard-wrapper */
+  background-color: white;
+  border-top-left-radius: 32px;
+  border-top-right-radius: 32px;
+  box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.04);
+  z-index: 9999;
+  padding: 10px 20px 24px 20px; /* Padding bawah lebih lega buat area swipe iPhone */
+  box-sizing: border-box;
+}
+
+.bottom-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #a1a1aa; /* Abu-abu kalem */
+  font-size: 0.7rem;
+  font-weight: 700;
+  gap: 6px;
+  width: 20%;
+  transition: all 0.3s ease;
+}
+
+.nav-item .icon {
+  font-size: 1.4rem;
+  filter: grayscale(100%) opacity(0.5); /* Bikin emoji jadi abu-abu mati */
+  transition: all 0.3s ease;
+}
+
+/* KONDISI AKTIF (Pas menu lagi dibuka) */
+.nav-item.active {
+  color: #1c1c1e; /* Warna gelap tegas */
+}
+
+.nav-item.active .icon {
+  filter: grayscale(0%) opacity(1); /* Emoji balik berwarna terang */
+  transform: translateY(-2px); /* Efek naik dikit */
+}
+
+/* --- FLOATING ACTION BUTTON (+) TEPAT DI TENGAH --- */
+.fab-container {
+  position: relative;
+  top: -25px; /* Ngangkat keluar dari bar putih */
+}
+
+.fab-btn {
+  width: 58px;
+  height: 58px;
+  background-color: #ffcf54; /* Kuning pastel dari referensi lu */
+  color: #1c1c1e;
+  border: none;
+  border-radius: 50%;
+  font-size: 2rem;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(255, 207, 84, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fab-btn:active {
+  transform: scale(0.9);
+  box-shadow: 0 4px 10px rgba(255, 207, 84, 0.4);
+}

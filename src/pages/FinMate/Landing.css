@@ -1,0 +1,138 @@
+/* Landing.css - Cinematic Elegant Style */
+
+/* 1. IMPORT FONT & GLOBAL RESET */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #f9fafb; /* Warna background abu sangat muda */
+    overflow-x: hidden;
+}
+
+/* 2. HERO SECTION (BAGIAN UTAMA HIJAU) */
+.landing-hero {
+    /* Gradient yang sama persis dengan halaman Auth */
+    background: linear-gradient(135deg, #14532d 0%, #16a34a 100%);
+    min-height: 85vh; /* Tinggi hampir setara layar */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 20px;
+    color: white;
+    position: relative;
+    /* Lengkungan modern di bagian bawah */
+    border-bottom-right-radius: 120px; 
+    box-shadow: 0 20px 40px rgba(22, 163, 74, 0.2);
+}
+
+/* Pattern halus di background (Opsional, biar makin mewah) */
+.landing-hero::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at top right, rgba(255,255,255,0.05) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+/* 3. TYPOGRAPHY */
+.brand-logo {
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: -1px;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.hero-title {
+    font-size: 64px; /* Ukuran besar buat headline */
+    font-weight: 800;
+    letter-spacing: -2px;
+    line-height: 1.1;
+    max-width: 900px;
+    margin: 0;
+    /* Animasi muncul pelan */
+    animation: fadeUp 1s ease-out;
+}
+
+.hero-subtitle {
+    font-size: 20px;
+    font-weight: 400;
+    opacity: 0.9;
+    max-width: 700px;
+    margin: 24px 0 48px 0;
+    line-height: 1.6;
+    animation: fadeUp 1s ease-out 0.2s backwards; /* Delay dikit */
+}
+
+/* 4. BUTTONS (CTA) */
+.cta-container {
+    display: flex;
+    gap: 20px;
+    animation: fadeUp 1s ease-out 0.4s backwards;
+}
+
+/* Tombol Utama (Putih Teks Hijau - Kebalikan dari Login) */
+.btn-primary {
+    padding: 18px 36px;
+    background-color: white;
+    color: #16a34a;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(255,255,255,0.2);
+    background-color: #f0fdf4;
+}
+
+/* Tombol Kedua (Outline Transparan) */
+.btn-outline {
+    padding: 18px 36px;
+    border: 2px solid rgba(255,255,255,0.5);
+    color: white;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    border-color: white;
+    background-color: rgba(255,255,255,0.1);
+    transform: translateY(-3px);
+}
+
+/* 5. FOOTER */
+.landing-footer {
+    text-align: center;
+    padding: 60px 20px;
+    color: #6b7280;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Animasi */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsif untuk HP */
+@media (max-width: 768px) {
+    .hero-title { font-size: 42px; }
+    .hero-subtitle { font-size: 18px; }
+    .cta-container { flex-direction: column; width: 100%; }
+    .btn-primary, .btn-outline { width: 100%; text-align: center; box-sizing: border-box; }
+}

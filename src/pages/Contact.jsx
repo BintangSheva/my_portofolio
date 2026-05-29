@@ -22,6 +22,7 @@ function Contact () {
                     <Linkedin/>
                     </a>
             </div>
+            <section id="contact">....</section>
         </section>
     );
 }

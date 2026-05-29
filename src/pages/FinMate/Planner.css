@@ -1,0 +1,109 @@
+/* === LAYOUT UTAMA === */
+.planner-page {
+  display: flex;
+  height: 100vh;
+  background-color: #fdfbf7;
+  overflow: hidden;
+}
+
+.planner-container {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+}
+
+/* === HEADER === */
+.planner-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.page-title { font-size: 2rem; font-weight: 800; color: #1f2937; margin: 0; }
+.page-subtitle { color: #6b7280; margin-top: 5px; }
+
+.btn-add-goal {
+  background-color: #10b981;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  transition: 0.2s;
+}
+.btn-add-goal:hover { transform: translateY(-2px); background-color: #059669; }
+
+/* === GRID KARTU (YANG LU SUKA) === */
+.goals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.goal-card {
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+  border: 1px solid #f3f4f6;
+  display: flex;
+  flex-direction: column;
+}
+.goal-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+
+.card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; }
+.btn-icon { background: none; border: none; font-size: 1.2rem; cursor: pointer; opacity: 0.3; }
+.btn-icon:hover { opacity: 1; color: #ef4444; }
+
+.goal-title { font-size: 1.2rem; color: #374151; margin: 0 0 10px 0; }
+.money-info { margin-bottom: 15px; }
+.current-money { font-size: 1.5rem; font-weight: 800; color: #1f2937; }
+.target-money { color: #9ca3af; font-size: 0.9rem; }
+
+.progress-container { margin-bottom: 20px; }
+.progress-bar-bg { width: 100%; height: 10px; background-color: #f3f4f6; border-radius: 10px; overflow: hidden; }
+.progress-bar-fill { height: 100%; border-radius: 10px; transition: width 1s ease-in-out; }
+.progress-text { font-size: 0.85rem; font-weight: bold; color: #374151; display: block; margin-top: 5px; }
+
+/* TOMBOL AKSI KARTU */
+.card-actions { display: flex; gap: 10px; margin-top: auto; }
+.btn-secondary { flex: 1; padding: 10px; background: white; border: 1px solid #e5e7eb; border-radius: 10px; cursor: pointer; font-weight: 600; color: #4b5563; }
+.btn-primary-small { flex: 1; padding: 10px; background: #10b981; border: none; border-radius: 10px; cursor: pointer; font-weight: 600; color: white; }
+.btn-secondary:hover { background: #f9fafb; color: #2563eb; border-color: #bfdbfe; }
+
+/* === MODAL POP-UP STYLE (POP UP BARU) === */
+.modal-overlay {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Gelap Transparan */
+  display: flex; justify-content: center; align-items: center; z-index: 9999;
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  background: white; width: 90%; max-width: 450px;
+  border-radius: 20px; padding: 30px; text-align: center;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  animation: popUp 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efek membal */
+}
+
+@keyframes popUp {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.modal-icon { font-size: 3.5rem; display: block; margin-bottom: 10px; }
+.strategy-badge { background: #dbeafe; color: #1e40af; padding: 5px 15px; border-radius: 50px; font-weight: 800; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; }
+.modal-title { margin: 15px 0 10px; color: #111827; font-size: 1.4rem; font-weight: 800; }
+.modal-body { color: #4b5563; line-height: 1.6; font-size: 0.95rem; margin-bottom: 25px; }
+
+.recommendation-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 25px; text-align: left; }
+.rec-box { background: #f9fafb; padding: 15px; border-radius: 12px; border-left: 4px solid #ddd; }
+.rec-label { display: block; font-size: 0.75rem; color: #6b7280; font-weight: bold; text-transform: uppercase; margin-bottom: 5px; }
+.rec-val { font-size: 1rem; font-weight: 800; color: #1f2937; }
+
+.btn-close { width: 100%; padding: 15px; background: #111827; color: white; border: none; border-radius: 12px; font-weight: bold; cursor: pointer; transition: 0.2s; }
+.btn-close:hover { background: #374151; transform: scale(0.98); }

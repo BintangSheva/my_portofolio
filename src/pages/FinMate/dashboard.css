@@ -1,0 +1,250 @@
+/* dashboard.css - Mobile Native Pastel UI */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* 👇 INI KODE SAPU JAGAT YANG KETINGGALAN DER 👇 */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+:root {
+  /* Palette Pastel ala Referensi UI Mobile */
+  --bg-main: #f7f7f9; /* Abu-abu sangat terang / Putih tulang */
+  --text-dark: #1c1c1e;
+  --text-gray: #8e8e93;
+  
+  /* Warna Card Pastel */
+  --pastel-yellow: #ffcf54;
+  --pastel-orange: #ffb347;
+  --pastel-pink: #ffd1dc;
+  --pastel-purple: #e3d1ff;
+  --pastel-green: #bbf7d0;
+  
+  /* Lengkungan Modern */
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-dark);
+  padding: 0; /* Margin udah di-reset di global rule atas */
+}
+
+/* 📱 Bikin layoutnya ngunci ala layar HP di tengah kalau dibuka di Laptop */
+.dashboard-wrapper {
+  max-width: 480px; /* Lebar maksimal layar HP */
+  margin: 0 auto;
+  background-color: var(--bg-main);
+  min-height: 100vh;
+  position: relative;
+  box-shadow: 0 0 40px rgba(0,0,0,0.05);
+  overflow-x: hidden;
+  padding-bottom: 100px; /* Space kosong buat Bottom Navigation nanti */
+}
+
+/* --- SEMBUNYIIN ELEMEN DESKTOP --- */
+.sidebar-container, .sidebar-toggle-btn {
+  display: none !important;
+}
+.main-content {
+  padding: 0 !important;
+  width: 100%;
+}
+
+/* --- TOPBAR GREETING --- */
+.topbar-container {
+  padding: 40px 24px 10px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.user-greeting h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0 0 4px 0;
+  letter-spacing: -0.5px;
+  color: var(--text-dark);
+}
+.user-greeting p {
+  color: var(--text-gray);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* --- BANNER STATUS AI --- */
+.status-banner {
+  background: linear-gradient(135deg, var(--pastel-yellow) 0%, var(--pastel-orange) 100%); 
+  margin: 10px 24px 24px 24px;
+  padding: 30px 24px;
+  border-radius: var(--radius-xl);
+  color: #1f1f1f;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(255, 179, 71, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.status-banner h1.status-label {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -1px;
+}
+.status-banner p {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin: 0;
+  opacity: 0.8;
+}
+
+/* --- FILTER BULAN --- */
+.filter-container {
+  padding: 0 24px;
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.filter-container select, .filter-container span {
+  background: white;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+  font-family: inherit;
+}
+
+/* --- KARTU STATISTIK UMUM --- */
+.stat-card {
+  background: white;
+  margin: 0 24px 24px 24px;
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+}
+.stat-card p {
+  color: var(--text-gray);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 10px 0;
+}
+.stat-card h3 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin: 0 0 15px 0;
+  color: var(--text-dark);
+}
+
+/* --- QUICK FILL --- */
+.quick-fill-container {
+  margin: 0 0 24px 0;
+}
+.quick-fill-container p {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin: 0 24px 16px 24px;
+  color: var(--text-dark);
+  text-align: left;
+}
+.quick-fill-scroll {
+  display: flex;
+  gap: 12px;
+  padding: 0 24px 10px 24px;
+  overflow-x: auto;
+  scrollbar-width: none; 
+}
+.quick-fill-scroll::-webkit-scrollbar {
+  display: none; 
+}
+.quick-fill-scroll button {
+  flex: 0 0 auto;
+  padding: 16px 20px;
+  border-radius: var(--radius-md);
+  border: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  color: var(--text-dark);
+  transition: transform 0.2s;
+}
+.quick-fill-scroll button:active {
+  transform: scale(0.95);
+}
+.quick-fill-scroll button:nth-child(1) { background-color: var(--pastel-pink); }
+.quick-fill-scroll button:nth-child(2) { background-color: var(--pastel-purple); }
+.quick-fill-scroll button:nth-child(3) { background-color: var(--pastel-green); }
+.quick-fill-scroll button:nth-child(4) { background-color: var(--pastel-yellow); }
+.quick-fill-scroll button:nth-child(5) { background-color: #e5e5ea; }
+
+/* --- FORM INPUT TRANSAKSI BARU --- */
+.input-section {
+  background: white;
+  margin: 0 24px 24px 24px;
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+}
+.input-section h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #2d6a4f;
+}
+.input-field {
+  width: 100%;
+  padding: 16px;
+  margin-bottom: 12px;
+  border: 1px solid #f0f0f0;
+  background-color: #fafafa;
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  box-sizing: border-box; /* Amanin padding input */
+  transition: 0.3s;
+}
+.input-field:focus {
+  outline: none;
+  border-color: var(--pastel-orange);
+  background-color: white;
+}
+.btn-submit {
+  width: 100%;
+  padding: 18px;
+  background-color: var(--pastel-orange); 
+  color: white;
+  border: none;
+  border-radius: 50px; 
+  font-weight: 700;
+  font-size: 1rem;
+  margin-top: 10px;
+  cursor: pointer;
+  box-shadow: 0 8px 15px rgba(255, 179, 71, 0.3);
+}
+
+/* --- TOMBOL RE-ANALYZE AI --- */
+.ai-button-container {
+  margin: 0 24px 30px 24px;
+  text-align: center;
+}
+.ai-button-container button {
+  width: 100%;
+  padding: 18px;
+  background-color: #2c2c2e; 
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}

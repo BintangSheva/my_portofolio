@@ -1,0 +1,203 @@
+/* Auth.css - ELEGANT VERSION */
+
+/* 1. IMPORT FONT PREMIUM (Plus Jakarta Sans) */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+/* 2. RESET & GLOBAL STYLE */
+body, html {
+  margin: 0;
+  padding: 0;
+  /* height: 100%;  <-- HAPUS INI JUGA BIAR AMAN */
+  width: 100%;
+  /* overflow: hidden; <-- WAJIB HAPUS INI */
+  overflow-x: hidden; /* Ganti jadi ini (biar cuma nyembunyiin scroll samping) */
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.auth-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background-color: white;
+}
+
+.auth-card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+/* 3. BAGIAN KIRI (HIJAU LUXURY) */
+.auth-left {
+  flex: 1;
+  /* Gradient Hijau yang lebih "Dalam" & Elegant */
+  background: linear-gradient(135deg, #14532d 0%, #16a34a 100%);
+  padding: 80px; /* Padding lebih lega */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+  position: relative;
+  transition: all 1s cubic-bezier(0.22, 1, 0.36, 1); /* Easing "Apple" style */
+  overflow: hidden;
+}
+
+/* Efek Pattern Halus di Background Hijau (Opsional - Biar gak polos) */
+.auth-left::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at top right, rgba(255,255,255,0.1) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+/* 4. BAGIAN KANAN (FORM CLEAN) */
+.auth-right {
+  flex: 1;
+  padding: 0 120px; /* Spacing kanan-kiri luas biar "Mahal" */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #ffffff;
+  opacity: 1;
+  transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* --- LOGIC INTRO --- */
+.intro-active .auth-left {
+  flex: 0 0 100%;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro-active .auth-right {
+  flex: 0 0 0%;
+  padding: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+/* 5. TYPOGRAPHY (KUNCI ELEGANCE) */
+.brand-logo {
+  font-size: 26px;
+  font-weight: 800; /* Extra Bold */
+  letter-spacing: -0.5px; /* Rapatkan dikit biar modern */
+}
+
+.intro-title {
+  font-size: 90px; /* Makin gede makin statement */
+  font-weight: 800;
+  letter-spacing: -3px;
+  margin-bottom: 16px;
+  animation: floatText 4s ease-in-out infinite;
+}
+
+.intro-desc {
+  font-size: 18px;
+  font-weight: 400;
+  opacity: 0.7;
+  letter-spacing: 0.5px;
+}
+
+/* Teks Kiri Normal */
+.left-text h1 {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+
+.auth-header h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #111827;
+  letter-spacing: -1px;
+  margin-bottom: 8px;
+}
+
+.auth-header p {
+  color: #9ca3af;
+  font-size: 15px;
+}
+
+/* 6. FORM INPUT (STYLE BARU: MINIMALIST) */
+.form-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 8px;
+  text-transform: uppercase; /* Label uppercase kecil biar elegan */
+  letter-spacing: 0.5px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 16px 20px; /* Padding lega */
+  background-color: #f9fafb; /* Abu sangat muda, bukan putih */
+  border: 1px solid #e5e7eb; /* Border tipis banget */
+  border-radius: 12px; /* Radius lebih bulet */
+  font-size: 15px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  color: #1f2937;
+}
+
+.form-input::placeholder {
+  color: #d1d5db; /* Placeholder samar */
+}
+
+/* Efek Fokus: Border Ijo + Shadow Halus */
+.form-input:focus {
+  outline: none;
+  background-color: white;
+  border-color: #16a34a;
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.08); /* Glow halus mewah */
+}
+
+/* 7. BUTTON (STYLE BARU: MODERN PILL) */
+.btn-submit {
+  width: 100%;
+  padding: 18px;
+  margin-top: 24px;
+  background-color: #16a34a;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+  letter-spacing: 0.3px;
+}
+
+.btn-submit:hover {
+  background-color: #15803d;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(22, 163, 74, 0.25); /* Shadow Ijo pas hover */
+}
+
+.auth-footer {
+  margin-top: 32px;
+  text-align: center;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* ANIMATIONS */
+@keyframes floatText {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .auth-card { flex-direction: column; }
+  .intro-active .auth-left { flex: 0 0 100vh; } 
+  .intro-active .auth-right { flex: 0 0 0vh; }
+  .auth-left { padding: 40px; height: 35vh; }
+  .auth-right { padding: 40px 30px; flex: 1; }
+  .intro-title { font-size: 56px; }
+}
