@@ -46,12 +46,35 @@ export const createGoal = async (req, res) => {
 // 3. UPDATE / NABUNG (Put)
 export const updateGoal = async (req, res) => {
   try {
-    const updatedGoal = await Goal.findByIdAndUpdate(
-      req.params.id,
-      { $set: req.body }, 
-      { new: true } 
-    );
-    res.status(200).json(updatedGoal);
+    const { currentAmount, addAmount } = req.body;
+    //addAmount = Uang yang baru dimasukin (misal 50.000)
+
+    // kalau cuma update data biasa (tanpa nabung), pakai logika lama
+    if (addAmount === undifined ) {
+      const updated = await Goal.findByIdAndUpdate(
+        req.params.id,
+        { $set: req.body },
+        { new: true }
+      );
+      return res.status(200).json(updated);
+    }
+
+    // kalau ada addAmount, berarti lagi nabung
+    const goal = await Goal.findById(req.params.id);
+
+    // update total
+    goal.currentAmount = Number(goal.currentAmount) + Number(addAmount);
+
+    // cata sejarah
+    goal.history.push ({
+      amount: Number(addAmount),
+      date: new Date()
+    });
+    await goal.save(); // Simpan perubahan
+    
+    console.log(`📈 User nabung Rp ${addAmount}. Total skrg: ${goal.currentAmount}`);
+    res.status(200).json(goal);
+
   } catch (error) {
     console.error("❌ ERROR di updateGoal:", error);
     res.status(400).json({ message: error.message });

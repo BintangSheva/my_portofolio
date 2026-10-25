@@ -10,7 +10,7 @@ const Landing = () => {
       <main className="landing-hero">
         {/* Logo Sederhana di atas */}
         <div className="brand-logo">
-          Isi Logo Disini
+
           <span>FinMate*</span>
         </div>
 
